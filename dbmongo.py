@@ -2,7 +2,7 @@ import pymongo
 from pymongo import MongoClient
 import scrap as sc
 
-cluster = MongoClient("mongodb+srv://Kaan:kaan45@cluster0.jqliflo.mongodb.net/?retryWrites=true&w=majority") 
+cluster = MongoClient
 db = cluster["database1"]
 
 """

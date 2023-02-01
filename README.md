@@ -7,7 +7,7 @@ Ayrıca kişisel bir e-ticaret sitesi tasarlanmış istenilen ürünler ayrıca 
 Projenin yapımında HTML, CSS, Bootstrap, JavaScript, Python, Flask, Jinja, Beautiful Soup teknolojileri, veritibanında MongoDB ve Visual Studio Code IDE’si kullanılmıştır.
 
 
-![Kişisel E-Ticaret Sitesi Anasayfa](https://imgyukle.com/i/JdRTPH)
+![Kişisel E-Ticaret Sitesi Anasayfa](https://imgyukle.com/f/2023/02/01/JdRTPH.png)
 
 # Projede Gerçekleştirilen İsterler
 ## ● 1)

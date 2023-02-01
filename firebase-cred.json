@@ -1,12 +1,14 @@
 {
-  "type": "service_account",
-  "project_id": "yazlab1-1-1f357",
-  "private_key_id": "e1f70f90cebeeb1061e68d92868b4105670614b8",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtDPlmdZ3bvyJt\n4uP/1C2kabRks+8yZ0I7TXwOE4bl5TOZEG10uKFkJG1jeDQYOwm+1QtvgrgTJRrG\nGm6Rk3iAWlZhTzsuG3qjg2thWYKZxrFjsD5ivFVwFmOG2hxl/mC2Lz479BGI02aU\nCQWGvXhZ+Z9QNAX0nGDHfyhCiOd6C4PbYpzdIMFcAH4IY1Dlrl+g9VvRwHF0YZws\nXsF0TkxqfVLEmQuVp0hqR3Ejh423FeT6NqzKPIx9ON8ya9p2mGwCjp2UPNfTH7Gj\npcK2lBAh11yWbHZWJ9EUaPLszOBZBXI4ocJxQI67+BOmt34QxKEkx3f6+f2Cra7B\n94RxD4nRAgMBAAECggEABqGRtMA26+jQhZ4RMzBe7Z7+knGN7dw0trOo2Fv9kkWI\ntzHAxP1Oc2k9LxeoBOHtxRwSMawkWDj2tD7G7AGG94Gmr9jGtXUIe3etq6O/wDtj\nuKSENnm9qyNzfcNRvWOMkoyfxZG8IoZpxsxL87pi0E1TQlI1BHch0wEzkm2fM58p\nUKQ+nPBcGWo7rb48OtcgRyd4Wbqf2RnjZ2qbkFQy/3sEqSsRbTufuEmMblVKiNGc\nQaGTgJaQv8My8hjrMIszA30wZoeF/p4J8EnsxkOvwky7WSN6mlp4tInzmM23UqRf\ni7hmWzMPzBL5Fx7CqthpJx4DaetwMJ6v3/npLB7RIQKBgQDcrkdrvAxA65C66Jld\n7jkwe+L2gDIWjPoPotPXrCFFJcg4Dd4kHOlQVu98ePduG6bGfQR4BfzWrp5z0/o+\nXaiMFLxOtcMO1xjQh/iQVPf3KLndMNu7a+794V18PKsFpJXSefmx0sBgmPi7Ctw1\nYgsOyxBElpTNHr0j2uNR889jcQKBgQDIvzKMU5mQ6z0lfbivm/ne72A2eF2M6eqG\n5+yIx+0UWWSaWprpRp8MVqwXG635IHfsOk2bj7lyr2ir0+QaL8ucTIcEux+ciZ9r\nJpXNQgTjX7RqZDaSk7go29U8zI3R7VRoBPLkk+7UJJAM7c4Xfh+/D3seEX1UucJT\nn1rgaAKcYQKBgQCn1bgl3K/pE/9P16UExjAiiqYT2W2+rttj1u+MoLHw+Aotb4aa\nKo7bdjLPlOSBjnApl101t0ATOlzyNK6mje6pEwAgUKaX+8k4l6DYjHbGN+gbrJQB\nF9Z8qdDCsxVSxljX6cKYlnOPQ+gvwNO3mehVCOVHdMqYsh8hTNEEPAxnUQKBgEHO\ny9dMoI7tTsI3kI+g5iy69CNnGePT2toWtWexgnqlQ2GGSjomuITm9Msue72rcySx\niDdyyixabEnH0IL1IB5AyBI49YfvZZ9OqtT6y3duLEqkR2+NlVVvm1uvAt7Kmlzv\nImDkTeqlgcN7QZBZ/DY58PZObXOU4atgFf5ymkiBAoGBALSvjk231Q6HtUYRgC+X\n2g0mRAmsv/oA8UxjhfMzIxqYW7yN7SyUQ6DAVfJV/G7Sosjij0EizDo+tYDNQgxb\n70882VZHivxUDDQqmRpDlq6Ln8MyxnJZhHP9s4ut3VBHb/uqB+cb/Tf61cww47qD\noBY0avPwO8Ume2eu++E9CEcN\n-----END PRIVATE KEY-----\n",
-  "client_email": "firebase-adminsdk-nxvfa@yazlab1-1-1f357.iam.gserviceaccount.com",
-  "client_id": "113213767159480378112",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-nxvfa%40yazlab1-1-1f357.iam.gserviceaccount.com"
+  "type": 
+  "project_id": 
+  "private_key_id":
+  "private_key":
+  "client_email": 
+  "client_id": 
+  "auth_uri": 
+  "token_uri": 
+  "auth_provider_x509_cert_url": 
+  "client_x509_cert_url": 
 }
+
+// Veriler Silinmistir

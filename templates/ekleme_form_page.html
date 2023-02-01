@@ -1,0 +1,101 @@
+<meta name="viewport">
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Admin{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Admin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin">Ana Sayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/form_ekle">Ürün Ekle</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<br>
+<h1 class="text-center">Ürün Ekleme Sayfası</h1>
+<br>
+
+<!--<div class="d-flex justify-content-center align-items-center" >
+  <div class='row' style='width: 18rem; margin:3%;  float:left;'>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Başlık</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Fiyat</label>
+        <input type="number" class="form-control" id="InputFiyat">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Puan</label>
+        <input type="number" class="form-control" id="InputPuan" aria-describedby="puanHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ürün Özellikleri</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <br>
+      
+      <button type="submit" class="btn btn-primary">Düzenle</button>
+      
+    </form> 
+  </div>
+</div>-->
+
+<div class="d-flex justify-content-center align-items-center" >
+  <div class='row' style='width: 18rem; margin:3%;  float:left;'>
+    <form  action={{ url_for("ekle_form")}} method="POST">
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Başlık</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textbar"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Marka</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textbar"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Model</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textbar"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Fiyat</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="textbar"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Puan</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="textbar"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Foto</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="textbar"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ürün Özellikleri</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textbar">{özellik: değer}</textarea>
+      </div>
+      <br>
+      
+      <button type="submit" class="btn btn-primary">Düzenle</button>
+      
+    </form> 
+  </div>
+</div>

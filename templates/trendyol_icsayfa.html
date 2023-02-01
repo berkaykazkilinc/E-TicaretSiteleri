@@ -1,0 +1,70 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<main class="container mt-3">
+
+    <div class="row">
+        <aside class="col-sm-4">
+
+            <br>
+            <img class="w-75"
+            src={{ basılacak.get("foto") }}
+            alt="İnternet Sitesi Logo Resmi ">
+
+        </aside>
+
+        <section class="row col-sm-8 p-3 mb-2 bg-warning bg-gradient bg-opacity-25 text-dark">
+            <h2 class="fw-normal">{{ basılacak.get("baslik") }}</h2>
+            <!-- PC BAŞLIĞI-->
+
+            <span>
+                <h4>FİYAT: {{ basılacak.get("fiyat") }}</h4> <!-- PC FİYATI ÇEKİLECEK-->
+            </span>
+
+            <span>
+                <h4>PUAN: {{ basılacak.get("puan") }}</h4> <!-- PC PUANI ÇEKİLECEK-->
+            </span>
+        </section>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section class="row col-sm-12 "> <!-- ÜRÜN ÖZELLİKLERİNİN YAZILDIĞI KISIM-->
+
+        <h3>ÜRÜN ÖZELLİKLERİ</h3>
+        <br>
+        <br>
+
+        <div class="row col-sm-4">
+            <table class="table-primary">
+                <tbody>
+                    {% for e in basılacak.get("özellikler") %}
+                    {% for key,value in e.items() %}
+                    <tr>
+                        <td>{{ key }}</td> <!-- İlk td'ler kalsın 2.tdlere databaseden veri çekilecek-->
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </section>
+
+
+
+
+
+</main>
+
+
+
+{% endblock content %}

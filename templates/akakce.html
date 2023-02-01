@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container mt-3">
+
+    <div class="row">
+        <aside class="col-sm-4">
+
+            <br>
+            <img class="w-100"
+                src={{ tekbas.get("foto") }}
+                alt="İnternet Sitesi Logo Resmi ">
+
+        </aside>
+
+        <section class="row col-sm-8">
+            <h2>{{ tekbas.get("baslik") }}</h2>
+            <!-- PC BAŞLIĞI-->
+
+            <span>
+                <h4>FİYAT: {{ tekbas.get("fiyat") }}</h4> <!-- PC FİYATI ÇEKİLECEK-->
+            </span>
+        </section>
+
+    </div>
+
+    <br>
+    <br>
+
+    <!-- BURAYA FOR DÖNGÜSÜYLE O BİLGİSAYAR KAÇ SİTE VE SATICIDA VARSA LİSTELENECEK-->
+
+    <section class="row col-sm-12">
+        {% for a in range(4) %}
+        {% if (name|int)+(a+2) <= basılacak|length %}
+        {% if  basılacak[(name|int)].get("model") == basılacak[(name|int)+a-1].get("model") %}
+        <article class="col-sm-4">
+
+            <span class="col-sm-4">
+                FİYAT:
+                <h3>{{ basılacak[(name|int)+a-1].get("marka") }}</h3> <!-- PC FİYATI ÇEKİLECEK-->
+            </span>
+
+        </article>
+
+        <article class="col-sm-4">
+
+            <span>
+                BAŞLIK:
+                <!-- PC BAŞLIĞI ÇEKİLECEK-->
+                <h5>{{ basılacak[(name|int)+a-1].get("baslik") }}</h5>
+            </span>
+        </article>
+
+        <article class="col-sm-4">
+
+            <span>
+
+                LİNK:
+                <!-- PC LİNKİ ÇEKİLECEK-->
+                <br>
+                {% if basılacak[(name|int)+a-1].get("site") == "bizimsite" %}
+                <a href={{ url_for("trendyol_icsayfa",name = basılacak[(name|int)+a-1].get("site"), name1 = basılacak[(name|int)+a-1].get("model")) }}>Satıcıya git</a>
+                {% else %}
+                <a href={{ basılacak[(name|int)+a-1].get("link") }}>Satıcıya git</a>
+                {% endif %}
+                
+
+            </span>
+
+        </article>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </section>
+
+    <br>
+    <br>
+
+    <section class="row col-sm-12 "> <!-- ÜRÜN ÖZELLİKLERİNİN YAZILDIĞI KISIM-->
+
+        <h3>ÜRÜN ÖZELLİKLERİ</h3>
+        <br>
+        <br>
+
+        <div class="row col-sm-4">
+            <table class="table-primary">
+                <tbody>
+                    {% for e in tekbas.get("özellikler") %}
+                    {% for key,value in e.items() %}
+                    <tr>
+                        <td>{{ key }}</td> <!-- İlk td'ler kalsın 2.tdlere databaseden veri çekilecek-->
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </section>
+
+
+
+
+
+</main>
+
+
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}YENI BASLIK{% endblock %}
+
+{% block content %}
+
+<article class="row mb-3">
+    <div class="col-sm-4"> 
+        <img class="w-100" src= {{ basılacak[i].get("foto") }} href={{ basılacak[i].get("link") }} alt="PC Resmi ">
+    </div>
+    <div class="col-sm-8 bg-light" >
+        <h2>{{ basılacak[i].get("Marka") }} ve {{ basılacak[i].get("Fiyat") }}</h2>  
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, ut quia facere magni hic libero numquam odio expedita soluta ipsam fugit fuga? Ea, iure asperiores debitis voluptate nihil nulla facilis.</p>  
+        
+    </div>
+</article>
+
+{% endblock %}

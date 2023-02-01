@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<body>
+
+  <navigation class="container text-center ">
+    <div class="row mt-3">
+      <div class="col bg-light">
+        <button type="button" onclick="sortList()" class="btn btn-outline-secondary">En Düşük Fiyat</button>
+      </div>
+      <div class="col bg-light">
+        <button type="button" onclick="sortListDesc()" class="btn btn-outline-secondary">En Yüksek Fiyat </button>
+      </div>
+      <div class="col bg-light">
+        <button type="button" onclick="sortListPuan()" class="btn btn-outline-secondary">En Yüksek Puan</button>
+      </div>
+    </div>
+  </navigation>
+
+  <main class="container mt-3">
+
+    <div class="row">
+      <aside class="col-sm-4">
+        
+        <h2>Markası</h2>
+        <form method="POST" action="/akakceklon">
+          
+          <ul class="list-group">
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="DELL" name="mycheckbox">
+                <label class="form-check-label" for="DellCheckbox">DELL</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="APPLE"  name="mycheckbox">
+                <label class="form-check-label" for="AppleCheckbox">APPLE</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="ASUS"  name="mycheckbox">
+                <label class="form-check-label" for="AsusCheckbox">ASUS</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="LENOVO"  name="mycheckbox">
+                <label class="form-check-label" for="LenovoCheckbox">LENOVO</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="MONSTER"  name="mycheckbox">
+                <label class="form-check-label" for="MonsterCheckbox">MONSTER</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="HUAWEI"  name="mycheckbox">
+                <label class="form-check-label" for="HuaweiCheckbox">HUAWEI</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="HP"  name="mycheckbox">
+                <label class="form-check-label" for="HuaweiCheckbox">HP</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="MSI"  name="mycheckbox">
+                <label class="form-check-label" for="HuaweiCheckbox">MSI</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="ACER"  name="mycheckbox">
+                <label class="form-check-label" for="HuaweiCheckbox">ACER</label>
+              </li>
+            </ul>
+          <br>
+          <button type="submit" class="btn btn-primary">Uygula</button>
+        </form>
+        <br>
+        <br>
+
+        <h2>SİTE</h2>
+        <form method="POST" action="/akakceklon">
+          
+          <ul class="list-group">
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="n11" name="mysite">
+                <label class="form-check-label" for="DellCheckbox">N11</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="vatan"  name="mysite">
+                <label class="form-check-label" for="AppleCheckbox">VATAN</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="teknosa"  name="mysite">
+                <label class="form-check-label" for="AsusCheckbox">TEKNOSA</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="incehesap"  name="mysite">
+                <label class="form-check-label" for="LenovoCheckbox">İNCE HESAP</label>
+              </li>
+              
+              
+            </ul>
+          <br>
+        
+          <button type="submit" class="btn btn-primary">Uygula</button>
+        </form>
+        
+    
+    
+  </aside>
+
+
+
+      <section class="row col-sm-8" id="id01">
+        
+        {% for i in range(basılacak|length) %}
+        {% if  basılacak[i].get("model") != basılacak[i-1].get("model") %}
+        <article class="row mb-3">
+          <div class="col-sm-4">
+            <a href={{ basılacak[i].get("link") }}>
+              <img class="w-100" src={{ basılacak[i].get("foto") }} alt="PC Resmi ">
+            </a>
+          </div>
+          <div class="col-sm-8 bg-light">
+            <a href={{ url_for('kaan',name = i,name1 = basılacak[i].get("site"), name2 = basılacak[i].get("model") ) }}>
+              <h2>{{ basılacak[i].get("baslik") }}</h2> <!--BİLGİSAYAR Basligi Olmali-->
+            </a>
+          
+          <div class="container text-center">
+            <div class="row align-items-end">
+              {% for a in range(4) %} <!--RANGE icindeki yere kac link varsa link sayısı bulunup yazılacak    -->
+              {% if i+a <= basılacak|length %}
+              {% if  basılacak[i].get("model") == basılacak[i+a-1].get("model") %}
+              <div class="col">
+                <a href={{ basılacak[i+a-1].get("link") }}><!-- BURDAKİ LİNK AKAKCE GİBİ OLANDA OZELLİK GOSTERME LİNKİ OLACAK-->
+                  <br>
+                  
+                  {% if a == 1 %}
+                  <h3>{{ basılacak[i+a-1].get("puan") }}</h3>
+                  <h5>{{ basılacak[i+a-1].get("fiyat") }}</h5>
+                  {% else %}
+                  <h4>{{ basılacak[i+a-1].get("puan") }}</h4>
+                  <h6>{{ basılacak[i+a-1].get("fiyat") }}</h6>
+                  {% endif %}
+                  <br>
+                </a>
+                {% if basılacak[i+a-1].get("site") == "bizimsite" %}
+                <a href={{ url_for("trendyol_icsayfa",name = basılacak[i+a-1].get("site"), name1 = basılacak[i+a-1].get("model")) }}><!-- site linkleri ve site logolarını sırasıyla koymamız lazım-->
+                {% else %}
+                <a href={{ basılacak[i+a-1].get("link") }}><!-- site linkleri ve site logolarını sırasıyla koymamız lazım-->
+                {% endif %}
+                  <img class="w-45" src={% if basılacak[i+a-1].get("site") == "vatan" %}"https://www.vatanbilgisayar.com/assets/dist/images/vatanlogo.svg" width="200" height="125"
+                  {% elif basılacak[i+a-1].get("site") == "incehesap" %}"https://cdn.cimri.io/pictures/merchant-logos/43.png?v=1"
+                  {% elif basılacak[i+a-1].get("site") == "teknosa" %}"https://img-teknosa-sap.mncdn.com/_ui/responsive/theme-teknosa/assets/images/logo.svg"
+                  {% elif basılacak[i+a-1].get("site") == "bizimsite" %}"https://files.sikayetvar.com/lg/cmp/31/31199.png?1522650125" width="200" height="125"
+                  {% else %}"https://n11scdn.akamaized.net/a1/org/22/06/24/72/96/64/36/96/74/72/45/71/57583492847166994803.svg"
+                  {% endif %}
+
+                  alt="İnternet Sitesi Logo Resmi ">
+                  
+                </a>
+                  
+                
+              </div>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <!--
+              n11 logo : https://n11scdn.akamaized.net/a1/org/22/06/24/72/96/64/36/96/74/72/45/71/57583492847166994803.svg
+              teknosa logo : https://img-teknosa-sap.mncdn.com/_ui/responsive/theme-teknosa/assets/images/logo.svg
+              vatan logo : https://www.vatanbilgisayar.com/assets/dist/images/vatanlogo.svg
+              incehesap logo : https://turnuva.incehesap.com/wp-content/uploads/2021/10/7a52155dee63e326998a0ac14ed3d7b4.png
+            -->
+
+        </article>
+        {% endif %}
+        {% endfor %}
+    </div>
+    
+
+
+    </section>
+
+
+    </div>
+
+
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+    <script>
+      const searchInput=document.querySelector("[data-search]")
+      var list, i, kart, switching, b, shouldSwitch;
+      list = document.getElementById("id01");
+      b = list.getElementsByTagName("h2");
+      kart = list.getElementsByTagName("article")
+      searchInput.addEventListener("input",(e)=>{
+        const value = e.target.value
+        console.log(value)
+        for (i = 0; i < (b.length); i++) {
+            kart[i].style.display = "block";
+        }
+        for (i = 0; i < (b.length); i++) {
+          const isVisible = b[i].innerHTML.toUpperCase().includes(value.toUpperCase())
+          //console.log(b[i].innerHTML)
+          if( !(b[i].innerHTML.toUpperCase().includes(value.toUpperCase())) ){
+            kart[i].style.display = "none";
+          }
+
+        }
+        /*
+        kart = list.getElementsByTagName("article")
+
+        const isVisible = b.innerHTML.includes(value)
+        kart.classList.toggle("hide", !isVisible)
+        */
+      })
+    </script>
+    
+    <script>
+      function sortList() {
+        var list, i, kart, switching, b, shouldSwitch;
+        list = document.getElementById("id01");
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+          // start by saying: no switching is done:
+          switching = false;
+          b = list.getElementsByTagName("h5");
+          kart = list.getElementsByTagName("article")
+          // Loop through all list-items:
+          for (i = 0; i < (b.length - 1); i++) {
+            // start by saying there should be no switching:
+            shouldSwitch = false;
+            /* check if the next item should
+            switch place with the current item: */
+            if (parseInt(b[i].innerHTML) > parseInt(b[i + 1].innerHTML)) {
+              /* if next item is alphabetically
+              lower than current item, mark as a switch
+              and break the loop: */
+              shouldSwitch = true;
+              break;
+            }
+          }
+          if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            kart[i].parentNode.insertBefore(kart[i + 1], kart[i]);
+            switching = true;
+          }
+        }
+      }
+      </script>
+      <script>
+        function sortListDesc() {
+          var list, i, kart, switching, b, shouldSwitch;
+          list = document.getElementById("id01");
+          switching = true;
+          while (switching) {
+            switching = false;
+            b = list.getElementsByTagName("h5");
+            kart = list.getElementsByTagName("article")
+            for (i = 0; i < (b.length - 1); i++) {
+              shouldSwitch = false;
+              if (parseInt(b[i].innerHTML) < parseInt(b[i + 1].innerHTML)) {
+                shouldSwitch = true;
+                break;
+              }
+            }
+            if (shouldSwitch) {
+              /* If a switch has been marked, make the switch
+              and mark the switch as done: */
+              kart[i].parentNode.insertBefore(kart[i + 1], kart[i]);
+              switching = true;
+            }
+          }
+        }
+        </script>
+        <script>
+          function sortListPuan() {
+            var list, i, kart, switching, b, shouldSwitch;
+            list = document.getElementById("id01");
+            switching = true;
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+              // start by saying: no switching is done:
+              switching = false;
+              b = list.getElementsByTagName("h3");
+              kart = list.getElementsByTagName("article")
+              // Loop through all list-items:
+              for (i = 0; i < (b.length - 1); i++) {
+                // start by saying there should be no switching:
+                shouldSwitch = false;
+                /* check if the next item should
+                switch place with the current item: */
+                if (parseFloat(b[i].innerHTML) < parseFloat(b[i + 1].innerHTML)) {
+                  /* if next item is alphabetically
+                  lower than current item, mark as a switch
+                  and break the loop: */
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+              if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark the switch as done: */
+                kart[i].parentNode.insertBefore(kart[i + 1], kart[i]);
+                switching = true;
+              }
+            }
+          }
+          </script>
+
+</body>
+
+{% endblock content %}
+
+</html>

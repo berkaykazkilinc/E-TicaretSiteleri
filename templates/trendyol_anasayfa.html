@@ -1,0 +1,302 @@
+{% extends 'base2.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+
+<body>
+
+  <navigation class="container text-center ">
+    <div class="row mt-3">
+      <div class="col bg-light">
+        <button type="button" onclick="sortList()" class="btn btn-outline-secondary">En Düşük Fiyat</button>
+      </div>
+      <div class="col bg-light">
+        <button type="button" onclick="sortListDesc()" class="btn btn-outline-secondary">En Yüksek Fiyat </button>
+      </div>
+      <div class="col bg-light">
+        <button type="button" onclick="sortListPuan()" class="btn btn-outline-secondary">En Yüksek Puan</button>
+      </div>
+    </div>
+  </navigation>
+
+  <main class="container mt-3">
+
+    <div class="row">
+      <aside class="col-sm-4">
+        <h2>Markası</h2>
+        <form method="POST" action="/trendyol">
+          
+          <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="DELL" name="mycheckbox">
+              <label class="form-check-label" for="DellCheckbox">DELL</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="APPLE"  name="mycheckbox">
+              <label class="form-check-label" for="AppleCheckbox">APPLE</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="ASUS"  name="mycheckbox">
+              <label class="form-check-label" for="AsusCheckbox">ASUS</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="LENOVO"  name="mycheckbox">
+              <label class="form-check-label" for="LenovoCheckbox">LENOVO</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="MONSTER"  name="mycheckbox">
+              <label class="form-check-label" for="MonsterCheckbox">MONSTER</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="HUAWEI"  name="mycheckbox">
+              <label class="form-check-label" for="HuaweiCheckbox">HUAWEI</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="HP"  name="mycheckbox">
+              <label class="form-check-label" for="HuaweiCheckbox">HP</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="MSI"  name="mycheckbox">
+              <label class="form-check-label" for="HuaweiCheckbox">MSI</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="ACER"  name="mycheckbox">
+              <label class="form-check-label" for="HuaweiCheckbox">ACER</label>
+            </li>
+          </ul>
+            <br>
+          <button type="submit" class="btn btn-primary">Uygula</button>
+
+        </form>
+        
+      </aside>
+
+
+
+      <section class="row col-sm-8" id="id01">
+
+        {% for i in range(basılacak|length) %}
+        <article class="row mb-3">
+          <div class="col-sm-4">
+            <a href={{ basılacak[i].get("link") }}>
+              <img class="w-100" src={{ basılacak[i].get("foto") }} alt="PC Resmi ">
+            </a>
+          </div>
+          <div class="col-sm-8 bg-light ">
+            <a href={{ url_for('trendyol_icsayfa',name = basılacak[i].get("site"), name1 = basılacak[i].get("model") ) }}> <!-- BURDAKİ LİNK BİLGİSAYARIN OZELLİKLERİNİN SERGİLENDİGİ TRENDYOL İC SAYFASINA GİTMELİ-->
+              <h3 class="fw-normal">{{ basılacak[i].get("baslik") }}</h3> <!--BİLGİSAYAR Basligi Olmali-->
+            </a>
+             
+          <div>
+            <div class="row align-items-end ">
+             
+              <div class="col">
+                  <br>
+                  <div style="clear: both">
+                    <p class="fs-4" style="display: inline-block" >FİYAT:</p>
+                    <h4 class="fw-light" style="display: inline-block" >{{ basılacak[i].get("fiyat") }}</h4>
+                    <p class="fs-4" style="display: inline-block" > TL</p>
+                    
+                  </div>
+                  
+                  
+                  <div style="clear: both">
+                    <p class="fs-5" style="display: inline-block" >PUAN:</p>
+                    <h5 class="fw-light" style="display: inline-block">{{ basılacak[i].get("puan") }}</h5>
+                    
+                  </div>
+                  
+                  <br>
+              </div>
+              
+            </div>
+          </div>
+                       
+
+          </div>
+
+
+        </article>
+        {% endfor %}
+    </div>
+    
+
+
+    </section>
+
+
+    </div>
+
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+
+    <script>
+      function sortList() {
+        var list, i, kart, switching, b, shouldSwitch;
+        list = document.getElementById("id01");
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+          // start by saying: no switching is done:
+          switching = false;
+          b = list.getElementsByTagName("h4");
+          kart = list.getElementsByTagName("article")
+          // Loop through all list-items:
+          for (i = 0; i < (b.length - 1); i++) {
+            // start by saying there should be no switching:
+            shouldSwitch = false;
+            /* check if the next item should
+            switch place with the current item: */
+            if (parseInt(b[i].innerHTML) > parseInt(b[i + 1].innerHTML)) {
+              /* if next item is alphabetically
+              lower than current item, mark as a switch
+              and break the loop: */
+              shouldSwitch = true;
+              break;
+            }
+          }
+          if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            kart[i].parentNode.insertBefore(kart[i + 1], kart[i]);
+            switching = true;
+          }
+        }
+      }
+      </script>
+      <script>
+        function sortListDesc() {
+          var list, i, kart, switching, b, shouldSwitch;
+          list = document.getElementById("id01");
+          switching = true;
+          /* Make a loop that will continue until
+          no switching has been done: */
+          while (switching) {
+            // start by saying: no switching is done:
+            switching = false;
+            b = list.getElementsByTagName("h4");
+            kart = list.getElementsByTagName("article")
+            // Loop through all list-items:
+            for (i = 0; i < (b.length - 1); i++) {
+              // start by saying there should be no switching:
+              shouldSwitch = false;
+              /* check if the next item should
+              switch place with the current item: */
+              if (parseInt(b[i].innerHTML) < parseInt(b[i + 1].innerHTML)) {
+                /* if next item is alphabetically
+                lower than current item, mark as a switch
+                and break the loop: */
+                shouldSwitch = true;
+                break;
+              }
+            }
+            if (shouldSwitch) {
+              /* If a switch has been marked, make the switch
+              and mark the switch as done: */
+              kart[i].parentNode.insertBefore(kart[i + 1], kart[i]);
+              switching = true;
+            }
+          }
+        }
+        </script>
+        <script>
+          function sortListPuan() {
+            var list, i, kart, switching, b, shouldSwitch;
+            list = document.getElementById("id01");
+            switching = true;
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+              // start by saying: no switching is done:
+              switching = false;
+              b = list.getElementsByTagName("h5");
+              kart = list.getElementsByTagName("article")
+              // Loop through all list-items:
+              for (i = 0; i < (b.length - 1); i++) {
+                // start by saying there should be no switching:
+                shouldSwitch = false;
+                /* check if the next item should
+                switch place with the current item: */
+                if (parseInt(b[i].innerHTML) < parseInt(b[i + 1].innerHTML)) {
+                  /* if next item is alphabetically
+                  lower than current item, mark as a switch
+                  and break the loop: */
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+              if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark the switch as done: */
+                kart[i].parentNode.insertBefore(kart[i + 1], kart[i]);
+                switching = true;
+              }
+            }
+          }
+          </script>
+
+          <script>
+            const searchInput=document.querySelector("[data-search]")
+            var list, i, kart, switching, b, shouldSwitch;
+            list = document.getElementById("id01");
+            b = list.getElementsByTagName("h3");
+            kart = list.getElementsByTagName("article")
+            searchInput.addEventListener("input",(e)=>{
+              const value = e.target.value
+              console.log(value)
+              for (i = 0; i < (b.length); i++) {
+                  kart[i].style.display = "block";
+              }
+              for (i = 0; i < (b.length); i++) {
+                const isVisible = b[i].innerHTML.toUpperCase().includes(value.toUpperCase())
+                //console.log(b[i].innerHTML)
+                if( !(b[i].innerHTML.toUpperCase().includes(value.toUpperCase())) ){
+                  kart[i].style.display = "none";
+                }
+      
+              }
+              /*
+              kart = list.getElementsByTagName("article")
+      
+              const isVisible = b.innerHTML.includes(value)
+              kart.classList.toggle("hide", !isVisible)
+              */
+            })
+          </script>
+
+  <!--<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="2">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>-->
+
+
+
+</body>
+
+
+
+{% endblock content %}
+
+</html>

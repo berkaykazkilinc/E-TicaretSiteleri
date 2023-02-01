@@ -4,7 +4,7 @@ N11, İnce Hesap, Vatan, Teknosa, gibi e ticaret sitelerinden istenilen ürüne 
 
 Ayrıca kişisel bir e-ticaret sitesi tasarlanmış istenilen ürünler ayrıca bu kişisel sitede de yayınlanmıştır.
 
-Projenin yapımında HTML, CSS, Bootstrap, JavaScript, Python, Flask, Jinja, Beautiful Soup teknolojileri ve Visual Studio Code IDE’si kullanılmıştır.
+Projenin yapımında HTML, CSS, Bootstrap, JavaScript, Python, Flask, Jinja, Beautiful Soup teknolojileri, veritibanında MongoDB ve Visual Studio Code IDE’si kullanılmıştır.
 
 
 # Projede Gerçekleştirilen İsterler
